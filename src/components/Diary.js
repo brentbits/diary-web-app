@@ -15,6 +15,7 @@ import {
 
 function Diary(){
   const [newDiary, setNewDiary] = useState("");
+  const [upDiary, upNewDiary] = useState("");
 
   const [users, setUsers] = useState([]);
   const usersCollectionRef = collection(db, "user-diary");
@@ -23,9 +24,10 @@ function Diary(){
     await addDoc(usersCollectionRef, { diary: newDiary });
   };
 
-  const updateUser = async (id, diary) => {
+  const updateUser = async (id) => {
     const userDoc = doc(db, "user-diary", id);
-    const newFields = { diary: diary + " this is edit" };
+    console.log(upDiary);
+    const newFields = { diary: upDiary };
     await updateDoc(userDoc, newFields);
   };
 
@@ -33,6 +35,15 @@ function Diary(){
     const userDoc = doc(db, "user-diary", id);
     await deleteDoc(userDoc);
   };
+
+  const refreshPage = () => {
+    const getUsers = async () => {
+      const data = await getDocs(usersCollectionRef);
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getUsers();
+  }
 
   useEffect(() => {
     const getUsers = async () => {
@@ -53,7 +64,7 @@ function Diary(){
                   <Form.Control
                     as="textarea"
                     placeholder="Leave a comment here"
-                    style={{ height: '100px' }}
+                    style={{ height: '120px' }}
                     onChange={(event) => {
                       setNewDiary(event.target.value);
                     }}
@@ -61,37 +72,57 @@ function Diary(){
                 </FloatingLabel>
                 <br />
                 <div class="center">
-                  <Button variant="success" onClick={createUser}>Post</Button>
+                  <Button variant="success"
+                    onClick={() => {
+                      createUser();
+                      refreshPage();
+                    }}
+                  >Post</Button>
                 </div>
             </div>
 
             {users.map((user) => {
                 return (
                   <div class="div-1">
-                    {" "}
-                    <h1>{user.diary}</h1>
+                    <div>
+                      <FloatingLabel controlId="floatingTextarea2">
+                        <Form.Control
+                          as="textarea"
+                          style={{padding: '10px', fontSize: '20px', fontWeight: 'bold', height: '150px'}}
+                          defaultValue= {user.diary}
+                          onChange={(event) => {
+                            upNewDiary(event.target.value);
+                          }}
+                        />
+                      </FloatingLabel>
+                    </div>
                     <div class="right">
                       <Button variant="primary"
                         onClick={() => {
                           updateUser(user.id, user.diary);
+                          refreshPage();
                         }}
                       >
-                        {" "}
-                        Update
+                      {" "}
+                      Update
                       </Button>
                       {" "}
                       <Button variant="danger"
                         onClick={() => {
-                          deleteUser(user.id);
+                        deleteUser(user.id);
+                        refreshPage();
                         }}
                       >
                         {" "}
                         Delete
                       </Button>
                     </div>
+                    
                   </div>
+                  
                 );
             })}
+            
 
 
         </div>
