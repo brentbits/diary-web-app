@@ -13,16 +13,16 @@ function App() {
           <HashRouter>
               <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                <Navbar.Brand href="/#/">MyDiary-app</Navbar.Brand>
+                <Navbar.Brand href="/diary-web-app/#/">MyDiary-app</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-                    <Nav.Link href="/#/home">Home</Nav.Link>
-                    <Nav.Link href="/#/about">About us</Nav.Link>
+                    <Nav.Link href="/diary-web-app/#/home">Home</Nav.Link>
+                    <Nav.Link href="/diary-web-app/#/about">About us</Nav.Link>
                     <NavDropdown title="Profile" id="collasible-nav-dropdown">
                       <NavDropdown.Item href="/account">Account</NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item href="/#/login">Logout</NavDropdown.Item>
+                      <NavDropdown.Item href="/diary-web-app/#/login">Logout</NavDropdown.Item>
                     </NavDropdown>
                   </Nav>
                   <Nav>
