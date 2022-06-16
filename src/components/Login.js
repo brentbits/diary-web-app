@@ -2,17 +2,26 @@ import React from "react";
 import Image1 from './images/signin-image.jpg';
 import Image2 from './images/signup-image.jpg';
 import {Container} from 'react-bootstrap';
+import './css/extr.css';
+import { HashRouter, Route} from 'react-router-dom';
+import Home from './Home';
 
 function Login(){
-    return (
-        <div class="main">
+    const gotoHome = () => {
+        <HashRouter>
+            <Route exact path="/home" element={<Home />} />
+        </HashRouter>
+      };
 
+    return (
+        <div class="center">
+            <br/><br/>
         
         <section class="signup">
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Sign up</h2><br/>
                         <form method="POST" class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -39,11 +48,13 @@ function Login(){
                             </div>
                         </form>
                     </div>
-                    <div class="signup-image">
+                    <div class="sign-image">
                         <Container>
-                            <figure><img src={Image2} alt="singupimage" /></figure>
+                            <figure>
+                                <img src={Image2} alt="singupimage" />
+                                <img src={Image1} alt="singupimage" class="img-fluid" />
+                            </figure>
                         </Container>
-                        <a href="#" class="signup-image-link">I am already member</a>
                     </div>
                 </div>
             </div>
@@ -53,17 +64,10 @@ function Login(){
         <section class="sign-in">
             <div class="container">
                 <div class="signin-content">
-                    <div class="signin-image">
-                        <Container>
-                            <figure>
-                                <img src={Image1} alt="singupimage" class="img-fluid" />
-                            </figure>
-                        </Container>
-                        <a href="#" class="signup-image-link">Create an account</a>
-                    </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">Sign in</h2>
+                        <h3 class="form-title">-or-</h3><br/>
+                        <h2 class="form-title">Sign in</h2><br/>
                         <form method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -78,17 +82,9 @@ function Login(){
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" onClick={gotoHome()}/>
                             </div>
                         </form>
-                        <div class="social-login">
-                            <span class="social-label">Or login with</span>
-                            <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>

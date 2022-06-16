@@ -1,5 +1,5 @@
 import React from "react";
-import './extr.css';
+import './css/extr.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {FloatingLabel, Form, Button} from 'react-bootstrap';
 import { useState, useEffect } from "react";
@@ -26,7 +26,6 @@ function Diary(){
 
   const updateUser = async (id) => {
     const userDoc = doc(db, "user-diary", id);
-    console.log(upDiary);
     const newFields = { diary: upDiary };
     await updateDoc(userDoc, newFields);
   };
@@ -60,7 +59,7 @@ function Diary(){
             <br />
             
             <div class="div-1">
-                  <FloatingLabel controlId="floatingTextarea2" label="Comments">
+                  <FloatingLabel controlId="floatingTextarea2" label="Write your diary here...">
                   <Form.Control
                     as="textarea"
                     placeholder="Leave a comment here"
