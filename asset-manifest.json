@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/diary-web-app/static/css/main.b72f7484.css",
-    "main.js": "/diary-web-app/static/js/main.a5afe040.js",
+    "main.css": "/diary-web-app/static/css/main.ecf0cee9.css",
+    "main.js": "/diary-web-app/static/js/main.94a2c6c2.js",
     "static/js/787.334c6ac4.chunk.js": "/diary-web-app/static/js/787.334c6ac4.chunk.js",
     "static/media/signin-image.jpg": "/diary-web-app/static/media/signin-image.6f1c72291c1ec0817ded.jpg",
     "static/media/signup-image.jpg": "/diary-web-app/static/media/signup-image.bd994738c4eb8deb2801.jpg",
     "static/media/my-diary.png": "/diary-web-app/static/media/my-diary.1e4cd9de716b94602ada.png",
     "index.html": "/diary-web-app/index.html",
-    "main.b72f7484.css.map": "/diary-web-app/static/css/main.b72f7484.css.map",
-    "main.a5afe040.js.map": "/diary-web-app/static/js/main.a5afe040.js.map",
+    "main.ecf0cee9.css.map": "/diary-web-app/static/css/main.ecf0cee9.css.map",
+    "main.94a2c6c2.js.map": "/diary-web-app/static/js/main.94a2c6c2.js.map",
     "787.334c6ac4.chunk.js.map": "/diary-web-app/static/js/787.334c6ac4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b72f7484.css",
-    "static/js/main.a5afe040.js"
+    "static/css/main.ecf0cee9.css",
+    "static/js/main.94a2c6c2.js"
   ]
 }
